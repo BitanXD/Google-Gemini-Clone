@@ -55,7 +55,15 @@ const Main = () => {
             <div className="result-data">
               <img src={assets.gemini_icon} alt="" />
               {/* if we use resultData directly in the p tag then it will display all the tag inside the response so to prevent that we use dangerouslySetInnerHTML property */}
-              <p dangerouslySetInnerHTML={{__html:resultData}}></p>
+              {loading ? (
+                <div className="loader">
+                  <hr />
+                  <hr />
+                  <hr />
+                </div>
+              ) : (
+                <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+              )}
             </div>
           </div>
         )}
